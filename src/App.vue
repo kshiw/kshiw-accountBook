@@ -3,7 +3,7 @@
         <router-view/>
         <tabbar>
             <tabbar-item>
-                <span slot="label">home</span>
+                <span slot="label" @click="tabCk('/')">home</span>
             </tabbar-item>
             <tabbar-item badge="2">
                 <span slot="label" @click="tabCk('add')">add</span>

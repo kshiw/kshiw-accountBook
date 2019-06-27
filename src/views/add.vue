@@ -15,7 +15,7 @@
         </group>
         <br>
         <br>
-        <x-button @click.native="addItem" action-type="submit" :disabled="disabled">完成</x-button>
+        <x-button @click.native="addItem(false)" action-type="submit" :disabled="disabled">完成</x-button>
         <x-button action-type="submit" @click.native="continueAdd" :disabled="disabled">继续新增</x-button>
         <toast v-model="toastFlag" type="text" :time="1200" width="8.5em" is-show-mask position="top" :text="showPositionValue" />
     </div>
@@ -60,7 +60,7 @@
                 this.log.push(params)
                 window.localStorage.setItem('accountListLog', JSON.stringify(this.log))
                 if (!flag) {
-                    history.go(-1)
+                    this.$router.go(-1)
                 }
             },
             continueAdd() {

@@ -20,12 +20,12 @@
             <tr>
                 <td>总计</td>
                 <td>{{sum.price}}</td>
-                <td>{{sum.dayProfit}} / {{sum.profit}}</td>
+                <td>{{sum.dayProfit.toFixed(2)}} / {{ sum.profit.toFixed(2) }}</td>
             </tr>
             </tbody>
         </x-table>
 
-        <div v-transfer-dom>
+        <div>
             <confirm v-model="deleteFlag" title="确定要删除咩？" @on-confirm="deleteExecution" />
         </div>
     </div>
