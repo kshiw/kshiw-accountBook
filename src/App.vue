@@ -13,6 +13,7 @@
     @import '~vux/src/styles/reset.less';
     @import "//at.alicdn.com/t/font_1268002_9inddc65nvf.css";
     html{ font-size:10vw; }
+    .weui-search-bar:after {border-bottom: none !important}
     .iconfont{
         font-family:"iconfont" !important;
         font-size:26px;font-style:normal;

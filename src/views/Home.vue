@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <div style="display: flex; top: 0; height: 44PX">
+        <div style="display: flex; top: 0; height: 44PX; border-bottom: 1px #D7D6DC solid;">
             <search v-model="search" position="absolute" auto-scroll-to-top ref="search" @on-submit="searchKey" placeholder="筛选关键字之间加空格"></search>
             <div @click="addItem" style="flex: 0 0 60px; background: #EFEFF4; color: #4B4B6A; font-size: 14px; line-height: 44PX">新增</div>
         </div>
@@ -100,7 +100,6 @@
         },
         computed: {
             sum() {
-                console.log('???')
                 let _sum = this.list.reduce((sum, cur) => {
                     sum.price += Number(cur.price)
                     sum.dayProfit += Number((cur.price * (cur.rate / cur.day)).toFixed(2))
@@ -113,7 +112,6 @@
                     sumPrice: 0
                 })
                 _sum.sumPrice = (_sum.price + _sum.profit)
-                console.log(_sum)
                 return _sum
             }
         },
