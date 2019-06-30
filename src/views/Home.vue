@@ -1,37 +1,67 @@
 <template>
     <div class="home">
-
-        <scroll ref="scroller" :data="list">
-            <div class="item-ob" v-for="(item,index) in list" :key="index" :class="{'expire': item.status == '-1'}">
-                <div class="day-tip">
+        <div style="display: flex; top: 0; height: 44PX">
+            <search v-model="search" position="absolute" auto-scroll-to-top ref="search" @on-submit="searchKey" placeholder="筛选关键字之间加空格"></search>
+            <div @click="addItem" style="flex: 0 0 60px; background: #EFEFF4; color: #4B4B6A; font-size: 14px; line-height: 44PX">新增</div>
+        </div>
+        <filters v-if="filterData" :filterData="filterData" :currenSelect="currentSelect" @select="selectItem"></filters>
+        <div style="position: fixed; left: 0; right: 0; top: 80PX; bottom: 50PX">
+            <scroll ref="scroller" :data="list">
+                <div class="item-ob" v-for="(item,index) in list" :key="index" :class="{'expire': item.status == '-1'}">
+                    <div class="day-tip">
                     <span class="time">
                         <span>{{weekRt(item.createTime)}}</span>
                         <b>{{item.createTime.substring(5, 10)}}</b>
                     </span>
-                    <div class="line"></div>
-                    <span class="time">
+                        <div class="line"></div>
+                        <span class="time">
                         <span>{{weekRt(item.endTime)}}</span>
                         <b>{{item.endTime && item.endTime.substring(5, 10)}}</b>
                     </span>
+                    </div>
+                    <div class="content">
+                        <div class="status">{{statusList[item.status]}}</div>
+                        <div class="name">{{item.name}}</div>
+                        <div style="display: flex; justify-content: space-between">
+                            <div class="type"><i class="iconfont icon-leixing"></i>{{item.type}}</div>
+                            <div class="sum"><i class="iconfont icon-xiaoshouzonge"></i>{{(item.price * (1 + item.rate * 1)).toFixed(2)}}</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between">
+                            <div class="price"><i class="iconfont icon-jinqian"></i>{{item.price}}</div>
+                            <div class="profit"><i class="iconfont icon-shouyi1"></i>{{(item.price * (item.rate / item.day)).toFixed(2)}} / {{ (item.price * item.rate).toFixed(2)}}</div>
+                        </div>
+                        <div class="btn-list">
+                            <!--<x-button class="btn-item" @click.native="ew(index)">id</x-button>-->
+                            <x-button class="btn-item" @click.native="deleteItem(index)">删除</x-button>
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <div class="status">{{statusList[item.status]}}</div>
-                    <div class="name">{{item.name}}</div>
-                    <div style="display: flex; justify-content: space-between">
-                        <div class="type"><i class="iconfont icon-leixing"></i>{{item.type}}</div>
-                        <div class="sum"><i class="iconfont icon-xiaoshouzonge"></i>{{(item.price * (1 + item.rate * 1)).toFixed(2)}}</div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between">
-                        <div class="price"><i class="iconfont icon-jinqian"></i>{{item.price}}</div>
-                        <div class="profit"><i class="iconfont icon-shouyi1"></i>{{(item.price * (item.rate / item.day)).toFixed(2)}} / {{ (item.price * item.rate).toFixed(2)}}</div>
-                    </div>
-                    <div class="btn-list">
-                        <x-button class="btn-item" @click.native="deleteItem(index)">删除</x-button>
-                    </div>
+            </scroll>
+        </div>
+        <card header="总计" style="position: fixed; bottom: 0; width: 100%">
+            <div slot="content" class="card-demo-flex">
+                <div class="vux-1px-r">
+                    <span>总资产</span>
+                    <br/>
+                    <countup :end-val="sum.sumPrice" :duration="3" :decimals="2" class="demo1"></countup>
+                </div>
+                <div class="vux-1px-r">
+                    <span>投入资产</span>
+                    <br/>
+                    <countup :end-val="sum.price" :duration="3" :decimals="2" class="demo1"></countup>
+                </div>
+                <div class="vux-1px-r">
+                    <span>总收益</span>
+                    <br/>
+                    <countup :end-val="sum.profit" :duration="3" :decimals="2" class="demo1"></countup>
+                </div>
+                <div>
+                    <span>日收益</span>
+                    <br/>
+                    <countup :end-val="sum.dayProfit" :duration="3" :decimals="2" class="demo1"></countup>
                 </div>
             </div>
-        </scroll>
-        {{sum}}
+        </card>
         <div>
             <confirm v-model="deleteFlag" title="确定要删除咩？" @on-confirm="deleteExecution" />
         </div>
@@ -39,14 +69,21 @@
 </template>
 
 <script>
+    import { Search, Card, Countup } from 'vux'
     import Scroll from '@/components/scroll'
+    import Filters from '@/components/filter'
+
+    const totalSeconds = 24 * 60 * 60 * 1000
+    const now = new Date()
+
     export default {
         components: {
-            Scroll
+            Scroll, Search, Filters, Card, Countup
         },
         name: 'home',
         data() {
             return {
+                filterData: null,
                 initList: localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : [],
                 list: [],
                 deleteFlag:false,
@@ -54,7 +91,9 @@
                 statusList: {
                     '-1': '已过期',
                     '1': '收益中'
-                }
+                },
+                search: '',
+                currentSelect: {}
             }
         },
         computed: {
@@ -63,17 +102,44 @@
                     sum.price += Number(cur.price)
                     sum.dayProfit += Number((cur.price * (cur.rate / cur.day)).toFixed(2))
                     sum.profit += Number((cur.price * cur.rate).toFixed(2))
+                    // sum.profit += Number((cur.price * cur.rate).toFixed(2))
                     return sum
                 }, {
                     price: 0,
                     dayProfit: 0,
                     profit: 0
                 })
-                console.log(_sum)
+                _sum.sumPrice = (_sum.price + _sum.profit).toFixed(2)
                 return _sum
             }
         },
         methods:{
+            searchKey(key) {
+                let search = (key || this.search).split(' ')
+                let list = []
+                let cfList = []
+                for (let i = 0, len = search.length; i < len; i++) {
+                    this.initList.forEach(item => {
+                        if (item.name && item.name.indexOf(search[i]) !== -1 || item.type && item.type.indexOf(search[i]) !== -1 ) {
+                            // 判断是否重复
+                            if (!cfList.includes(item.id)) {
+                                cfList.push(item.id)
+                                list.push(this.assembly(item))
+                            }
+                        }
+                    })
+                }
+                this.list = list
+            },
+            // 拼装数据
+            assembly(item) {
+                const startTemp = (new Date(item.createTime)).getTime()
+                let calc = new Date(startTemp + totalSeconds * item.day)
+                item.endTime = `${calc.getFullYear()}-${calc.getMonth()+1 < 10 ? '0' + (calc.getMonth()+1) : calc.getMonth()+1}-${calc.getDate() < 10 ? '0' + calc.getDate() : calc.getDate()} ${calc.getHours()}:${calc.getMinutes()}:${calc.getSeconds()}`
+                item.status = calc.getTime() < now.getTime() ? '-1' : '1'
+                return item
+            },
+            // 返回星期X
             weekRt(date) {
                 const weekKey = ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT']
                 return weekKey[new Date(date).getDay()]
@@ -85,21 +151,64 @@
             deleteExecution() {
                 this.list.splice(this.deleteIndex, 1)
                 window.localStorage.setItem('accountListLog', JSON.stringify(this.list))
+            },
+            selectItem(val) {
+                let list = []
+                let status = val.status
+                let time = ''
+                let _now = +new Date(`${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()}`)
+                if (val.time == 1) {
+                    time = _now
+                }
+                if (val.time == 2) {
+                    time = +new Date( _now - totalSeconds * 7)
+                }
+                if (val.time == 3) {
+                    time = +new Date(_now - totalSeconds * 30)
+                }
+                this.initList.forEach(item => {
+                    if ((status ? item.status == status : item.status) && (val.time ? +new Date(item.createTime) > time : item.createTime)) {
+                        list.push(this.assembly(item))
+                    }
+                })
+                this.list = list
+            },
+            setFilterData() {
+                let data = [
+                    {
+                        name: '状态',
+                        key:'status',
+                        options: [
+                            {"key": "", "name": "不限"},
+                            {"key": "1", "name": "收益中"},
+                            {"key": "-1", "name": "已过期"},
+                        ]
+                    },
+                    {
+                        name: '时间',
+                        key:'time',
+                        options: [
+                            {"key": "", "name": "不限"},
+                            {"key": "1", "name": "今天"},
+                            {"key": "2", "name": "一星期内"},
+                            {"key": "3", "name": "一个月内"}
+                        ]
+                    },
+                ];
+                this.filterData = data;
+            },
+            addItem() {
+                this.$router.push('add')
             }
         },
         mounted() {
             let list = []
-            const totalSeconds = 24 * 60 * 60 * 1000
-            const now = new Date()
             for (let i = 0, len = this.initList.length; i < len; i++) {
-                const item = this.initList[i]
-                const startTemp = (new Date(item.createTime)).getTime()
-                let calc = new Date(startTemp + totalSeconds * item.day)
-                item.endTime = `${calc.getFullYear()}-${calc.getMonth()+1 < 10 ? '0' + (calc.getMonth()+1) : calc.getMonth()+1}-${calc.getDate() < 10 ? '0' + calc.getDate() : calc.getDate()} ${calc.getHours()}:${calc.getMinutes()}:${calc.getSeconds()}`
-                item.status = calc.getTime() < now.getTime() ? '-1' : '1'
+                const item = this.assembly(this.initList[i])
                 list[i] = {...item}
             }
             this.list = list
+            this.setFilterData()
         }
     }
 </script>
@@ -145,5 +254,17 @@
                 }
             }
         }
+    }
+    .card-demo-flex {
+        display: flex;
+    }
+    .card-demo-flex > div {
+        flex: 1;
+        text-align: center;
+        font-size: 14PX;
+        padding: 6PX 0;
+    }
+    .card-demo-flex span {
+        color: #4B4B6A;
     }
 </style>

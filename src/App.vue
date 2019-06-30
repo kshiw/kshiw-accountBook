@@ -1,14 +1,6 @@
 <template>
     <div id="app">
         <router-view class="routerView"/>
-        <tabbar>
-            <tabbar-item>
-                <span slot="label" @click="tabCk('/')">home</span>
-            </tabbar-item>
-            <tabbar-item badge="2">
-                <span slot="label" @click="tabCk('add')">add</span>
-            </tabbar-item>
-        </tabbar>
     </div>
 </template>
 
@@ -53,7 +45,7 @@
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 50PX;
+        bottom: 0PX;
         top: 0;
     }
     .vux-cell-value {

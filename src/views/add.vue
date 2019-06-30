@@ -89,7 +89,8 @@
                 }
                 let params = {...this.addForm}
                 params.createTime += ' ' + params.adoptTime
-                params.type = params.type[0].type
+                params.type = this.options[params.type].type
+                params.id = +new Date() / 1000
                 delete params.adoptTime
                 this.log.push(params)
                 window.localStorage.setItem('accountListLog', JSON.stringify(this.log))
