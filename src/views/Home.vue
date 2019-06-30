@@ -6,6 +6,8 @@
         </div>
         <filters v-if="filterData" :filterData="filterData" :currenSelect="currentSelect" @select="selectItem"></filters>
         <div style="position: fixed; left: 0; right: 0; top: 80PX; bottom: 50PX">
+            <div class="tips" v-if="!list.length && !search">温馨提示：该工具仅支持android6.0 或 IOS9 以上系统 <br>不支持微信自带浏览器<br>（微信属于内置浏览器，localStorage存储机制然并卵）</div>
+            <div class="tips" v-if="!list.length && search">找不到相关记录</div>
             <scroll ref="scroller" :data="list">
                 <div class="item-ob" v-for="(item,index) in list" :key="index" :class="{'expire': item.status == '-1'}">
                     <div class="day-tip">
@@ -38,7 +40,7 @@
                 </div>
             </scroll>
         </div>
-        <card header="总计" style="position: fixed; bottom: 0; width: 100%">
+        <card style="position: fixed; bottom: 0; width: 100%" v-if="sum">
             <div slot="content" class="card-demo-flex">
                 <div class="vux-1px-r">
                     <span>总资产</span>
@@ -98,18 +100,20 @@
         },
         computed: {
             sum() {
+                console.log('???')
                 let _sum = this.list.reduce((sum, cur) => {
                     sum.price += Number(cur.price)
                     sum.dayProfit += Number((cur.price * (cur.rate / cur.day)).toFixed(2))
                     sum.profit += Number((cur.price * cur.rate).toFixed(2))
-                    // sum.profit += Number((cur.price * cur.rate).toFixed(2))
                     return sum
                 }, {
                     price: 0,
                     dayProfit: 0,
-                    profit: 0
+                    profit: 0,
+                    sumPrice: 0
                 })
-                _sum.sumPrice = (_sum.price + _sum.profit).toFixed(2)
+                _sum.sumPrice = (_sum.price + _sum.profit)
+                console.log(_sum)
                 return _sum
             }
         },
@@ -214,6 +218,9 @@
 </script>
 
 <style scoped lang="less">
+    .tips {
+        padding-top: 30PX; line-height: 2;color: #4B4B6A;
+    }
     .item-ob {
         display: flex; margin: 20px; border-radius: 5PX; overflow: hidden; box-shadow: 0px 5px 10px 1px rgba(125,185,232,0.3);
         background: rgb(125,185,232);

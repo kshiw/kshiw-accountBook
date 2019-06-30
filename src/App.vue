@@ -5,18 +5,7 @@
 </template>
 
 <script>
-    import { Tabbar, TabbarItem } from 'vux'
-
     export default {
-        components: {
-            Tabbar,
-            TabbarItem
-        },
-        methods: {
-            tabCk(to) {
-                this.$router.push(to)
-            }
-        }
     }
 </script>
 
