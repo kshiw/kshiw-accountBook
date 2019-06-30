@@ -3,20 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="74427bfa-a454-4f10-8210-9d9284aa472e" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/about.b416dd710e0ea062abf4.1561893141402.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/about.b416dd710e0ea062abf4.1561893141402.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/chunk-vendors.b416dd710e0ea062abf4.1561893141402.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/chunk-vendors.b416dd710e0ea062abf4.1561893141402.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/app.55552cd19d365471eec0.1561896327987.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/chunk-82406370.55552cd19d365471eec0.1561896327987.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/chunk-vendors.55552cd19d365471eec0.1561896327987.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/css/app.30ccc5ef.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/css/chunk-82406370.b1425c19.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/css/chunk-vendors.4d9a8f76.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/name].b416dd710e0ea062abf4.1561893141402.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/name].b416dd710e0ea062abf4.1561893141402.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/About.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+            <state relative-caret-position="184">
+              <caret line="160" column="128" selection-start-line="160" selection-start-column="128" selection-end-line="160" selection-end-column="128" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -70,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/add.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1901">
-              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            <state relative-caret-position="414">
+              <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
               <folding>
                 <element signature="e#1975#2026#0" expanded="true" />
               </folding>
@@ -233,18 +228,18 @@
       <option name="presentableId" value="Default" />
       <updated>1561653772126</updated>
       <workItem from="1561653773821" duration="466000" />
-      <workItem from="1561654439930" duration="35800000" />
+      <workItem from="1561654439930" duration="37004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36266000" />
+    <option name="totallyTimeSpent" value="37470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -259,7 +254,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32909605" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -411,8 +406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/add.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1901">
-          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        <state relative-caret-position="414">
+          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
           <folding>
             <element signature="e#1975#2026#0" expanded="true" />
           </folding>
@@ -421,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+        <state relative-caret-position="184">
+          <caret line="160" column="128" selection-start-line="160" selection-start-column="128" selection-end-line="160" selection-end-column="128" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />

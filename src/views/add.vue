@@ -109,7 +109,7 @@
         },
         watch: {
             'addForm.type'(val) {
-                if (!val) return
+                if (!val || val.length == 0) return
                 let cur = this.options[val]
                 Object.assign(this.addForm, {
                     rate: cur.rate,

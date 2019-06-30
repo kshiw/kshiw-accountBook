@@ -40,27 +40,27 @@
                 </div>
             </scroll>
         </div>
-        <card style="position: fixed; bottom: 0; width: 100%" v-if="sum">
+        <card style="position: fixed; bottom: 0; width: 100%" v-if="sum.sumPrice">
             <div slot="content" class="card-demo-flex">
                 <div class="vux-1px-r">
                     <span>总资产</span>
                     <br/>
-                    <countup :end-val="sum.sumPrice" :duration="3" :decimals="2" class="demo1"></countup>
+                    <countup :end-val="sum.sumPrice" :start-val="0" :duration="3" :decimals="2" class="demo1"></countup>
                 </div>
                 <div class="vux-1px-r">
                     <span>投入资产</span>
                     <br/>
-                    <countup :end-val="sum.price" :duration="3" :decimals="2" class="demo1"></countup>
+                    <countup :end-val="sum.price" :start-val="0" :duration="3" :decimals="2" class="demo1"></countup>
                 </div>
                 <div class="vux-1px-r">
                     <span>总收益</span>
                     <br/>
-                    <countup :end-val="sum.profit" :duration="3" :decimals="2" class="demo1"></countup>
+                    <countup :end-val="sum.profit" :start-val="0" :duration="3" :decimals="2" class="demo1"></countup>
                 </div>
                 <div>
                     <span>日收益</span>
                     <br/>
-                    <countup :end-val="sum.dayProfit" :duration="3" :decimals="2" class="demo1"></countup>
+                    <countup :end-val="sum.dayProfit" :start-val="0" :duration="3" :decimals="2" class="demo1"></countup>
                 </div>
             </div>
         </card>
@@ -86,7 +86,7 @@
         data() {
             return {
                 filterData: null,
-                initList: localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : [],
+                initList: [],
                 list: [],
                 deleteFlag:false,
                 deleteIndex: null,
@@ -153,8 +153,12 @@
                 this.deleteIndex = index
             },
             deleteExecution() {
+                let id = this.list[this.deleteIndex].id
+                let index = this.initList.findIndex(item => item.id == id)
                 this.list.splice(this.deleteIndex, 1)
-                window.localStorage.setItem('accountListLog', JSON.stringify(this.list))
+                this.initList.splice(index, 1)
+                window.localStorage.setItem('accountListLog', JSON.stringify(this.initList))
+                this.initList = localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : []
             },
             selectItem(val) {
                 let list = []
@@ -203,15 +207,19 @@
             },
             addItem() {
                 this.$router.push('add')
+            },
+            init() {
+                this.initList = localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : []
+                let list = []
+                for (let i = 0, len = this.initList.length; i < len; i++) {
+                    const item = this.assembly(this.initList[i])
+                    list[i] = {...item}
+                }
+                this.list = list
             }
         },
         mounted() {
-            let list = []
-            for (let i = 0, len = this.initList.length; i < len; i++) {
-                const item = this.assembly(this.initList[i])
-                list[i] = {...item}
-            }
-            this.list = list
+            this.init()
             this.setFilterData()
         }
     }
