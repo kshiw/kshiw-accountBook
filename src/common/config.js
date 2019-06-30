@@ -55,4 +55,53 @@ export const typeOptions = [
         adoptTime: '19:50',
         type: '十二生肖-马'
     },
+    //
+    {
+        minPrice: 20,
+        maxPrice: 200,
+        day: 5,
+        rate: 0.25,
+        adoptTime: '13:00',
+        type: '艾斯特-蓬莱蕉'
+    },
+    {
+        minPrice: 200,
+        maxPrice: 500,
+        day: 3,
+        rate: 0.13,
+        adoptTime: '14:00',
+        type: '艾斯特-南洋香蕉'
+    },
+    {
+        minPrice: 200,
+        maxPrice: 500,
+        day: 2,
+        rate: 0.11,
+        adoptTime: '15:00',
+        type: '艾斯特-露兜果'
+    },
+    {
+        minPrice: 500,
+        maxPrice: 1200,
+        day: 1,
+        rate: 0.09,
+        adoptTime: '15:40',
+        type: '艾斯特-释迦果'
+    },
+    {
+        minPrice: 1200,
+        maxPrice: 2100,
+        day: 5,
+        rate: 0.15,
+        adoptTime: '16:30',
+        type: '艾斯特-神秘果'
+    },
+    {
+        minPrice: 1200,
+        maxPrice: 2100,
+        day: 3,
+        rate: 0.12,
+        adoptTime: '17:30',
+        type: '艾斯特-人心果'
+    },
 ]
