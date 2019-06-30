@@ -63,13 +63,13 @@
                         if (val > i.minPrice && val <= i.maxPrice) {
                             list.push({
                                 name: i.type,
-                                value: i
+                                value: k
                             })
                         }
                     })
+                    if (list.length == 0) return
                     this.typeList = [list]
                     this.$nextTick(() => {
-                        // this.addForm.type = list[0]['value']
                         this.$set(this.addForm, 'type', [list[0]['value']])
                     })
                 }
@@ -104,14 +104,13 @@
         },
         watch: {
             'addForm.type'(val) {
-                console.log(val[0])
-                if (val[0]) {
-                    Object.assign(this.addForm, {
-                        rate: val[0].rate,
-                        adoptTime: val[0].adoptTime,
-                        day: val[0].day,
-                    })
-                }
+                if (!val) return
+                let cur = this.options[val]
+                Object.assign(this.addForm, {
+                    rate: cur.rate,
+                    adoptTime:cur.adoptTime,
+                    day: cur.day,
+                })
             }
         }
     }
