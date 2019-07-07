@@ -11,7 +11,7 @@
 
 <style lang="less">
     @import '~vux/src/styles/reset.less';
-    @import "//at.alicdn.com/t/font_1268002_9inddc65nvf.css";
+    @import "//at.alicdn.com/t/font_1268002_dvdqws0dn9j.css";
     html{ font-size:10vw; }
     .weui-search-bar:after {border-bottom: none !important}
     .iconfont{
@@ -40,5 +40,20 @@
     }
     .vux-cell-value {
         color: #2c3e50 !important;
+    }
+    .vux-confirm {
+        font-size: 0;
+        .weui-dialog__hd {
+            padding: 10px 30px;
+        }
+        &.plan-a {
+            .weui-dialog__hd {
+                border-bottom: 1px #eee solid; margin-bottom: 20px; text-align: left; box-sizing: border-box;
+            }
+        }
+        .vux-prompt-msgbox {font-size: 18PX}
+        .vux-prompt {
+            padding-bottom: 30px !important;
+        }
     }
 </style>

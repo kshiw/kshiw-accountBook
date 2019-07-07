@@ -2,7 +2,7 @@
     <div class="home">
         <div style="display: flex; top: 0; height: 44PX; border-bottom: 1px #D7D6DC solid;">
             <search v-model="search" position="absolute" auto-scroll-to-top ref="search" @on-submit="searchKey" placeholder="筛选关键字之间加空格"></search>
-            <div @click="addItem" style="flex: 0 0 60px; background: #EFEFF4; color: #4B4B6A; font-size: 14px; line-height: 44PX">新增</div>
+            <div @click.stop="addItem" style="flex: 0 0 60px; background: #EFEFF4; color: #4B4B6A; font-size: 14px; line-height: 44PX">新增</div>
         </div>
         <filters v-if="filterData" :filterData="filterData" :currenSelect="currentSelect" @select="selectItem"></filters>
         <div style="position: fixed; left: 0; right: 0; top: 80PX; bottom: 50PX">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="content">
                         <div class="status">{{statusList[item.status]}}</div>
-                        <div class="name">{{item.name}}</div>
+                        <div class="name"><div class="label-list"><span v-for="(label,labelIndex) in item.label" :key="labelIndex">{{label}}</span></div>{{item.name}}</div>
                         <div style="display: flex; justify-content: space-between">
                             <div class="type"><i class="iconfont icon-leixing"></i>{{item.type}}</div>
                             <div class="sum"><i class="iconfont icon-xiaoshouzonge"></i>{{(item.price * (1 + item.rate * 1)).toFixed(2)}}</div>
@@ -122,7 +122,8 @@
                 let cfList = []
                 for (let i = 0, len = search.length; i < len; i++) {
                     this.initList.forEach(item => {
-                        if (item.name && item.name.indexOf(search[i]) !== -1 || item.type && item.type.indexOf(search[i]) !== -1 ) {
+                        let _filter = item.label.filter(find => find.indexOf(search[i]) !== -1)
+                        if (item.name && item.name.indexOf(search[i]) !== -1 || item.type && item.type.indexOf(search[i]) !== -1 || _filter.length !== 0) {
                             // 判断是否重复
                             if (!cfList.includes(item.id)) {
                                 cfList.push(item.id)
@@ -204,6 +205,7 @@
                 this.filterData = data;
             },
             addItem() {
+                console.log('???')
                 this.$router.push('add')
             },
             init() {
@@ -257,7 +259,11 @@
         }
         .content {
             flex: 1; text-align: left; color: #fff; padding: 15px; position: relative; font-size: 26px;
-            .name{ font-size: 30px; height: 45px}
+            .name{ font-size: 30px; min-height: 45px; width: 400px; word-break: break-all; line-height: 42px; margin-bottom: 10px;
+                .label-list{display: inline-block; vertical-align: top;
+                    span{ margin-right: 10px;}
+                }
+            }
             i.iconfont{margin-right: 4PX}
             .status {position: absolute; top: 10px; right: 10px; font-size: 26px}
             .btn-list{
