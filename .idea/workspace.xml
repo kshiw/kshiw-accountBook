@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74427bfa-a454-4f10-8210-9d9284aa472e" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/active.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/active1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/active1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/app.894fd313b17d5db935fd.1561906174716.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/chunk-0ef7d6db.894fd313b17d5db935fd.1561906174716.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/chunk-vendors.894fd313b17d5db935fd.1561906174716.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/app.6cf49893.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/chunk-0ef7d6db.e7895b5a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/css/chunk-vendors.8b3e5156.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,15 +20,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/add.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="119">
               <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#confirm#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#3211#3269#0" expanded="true" />
-                <element signature="e#3708#4326#0" />
-                <element signature="e#4355#5151#0" />
-                <element signature="e#5308#5978#0" />
               </folding>
             </state>
           </provider>
@@ -51,13 +33,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="125" column="152" selection-start-line="125" selection-start-column="152" selection-end-line="125" selection-end-column="152" />
+            <state relative-caret-position="498">
+              <caret line="218" column="57" lean-forward="true" selection-start-line="218" selection-start-column="57" selection-end-line="218" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#scroll#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#4782#4823#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/common/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -86,6 +79,8 @@
       <find>.weui-dialog__hd</find>
       <find>labelSet</find>
       <find>addItem</find>
+      <find>item-ob</find>
+      <find>filterData</find>
     </findStrings>
     <replaceStrings>
       <replace>PX</replace>
@@ -108,11 +103,11 @@
         <option value="$PROJECT_DIR$/src/components/filter.vue" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/vue.config.js" />
-        <option value="$PROJECT_DIR$/src/common/config.js" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/postcss.config.js" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/views/add.vue" />
+        <option value="$PROJECT_DIR$/src/common/config.js" />
         <option value="$PROJECT_DIR$/src/views/Home.vue" />
       </list>
     </option>
@@ -226,18 +221,21 @@
       <workItem from="1562245371456" duration="146000" />
       <workItem from="1562246056658" duration="343000" />
       <workItem from="1562485087660" duration="565000" />
-      <workItem from="1562505391785" duration="10368000" />
+      <workItem from="1562505391785" duration="10711000" />
+      <workItem from="1562596477253" duration="557000" />
+      <workItem from="1562677074050" duration="940000" />
+      <workItem from="1562838208139" duration="2524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55044000" />
+    <option name="totallyTimeSpent" value="59408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -267,7 +265,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/add.vue</url>
           <line>176</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -360,13 +357,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_vux@2.9.4@vux/src/components/x-number/index.vue" />
-    <entry file="file://$PROJECT_DIR$/src/common/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-393">
-          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -416,27 +406,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/add.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="119">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#confirm#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#3211#3269#0" expanded="true" />
-            <element signature="e#3708#4326#0" />
-            <element signature="e#4355#5151#0" />
-            <element signature="e#5308#5978#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="125" column="152" selection-start-line="125" selection-start-column="152" selection-end-line="125" selection-end-column="152" />
+        <state relative-caret-position="498">
+          <caret line="218" column="57" lean-forward="true" selection-start-line="218" selection-start-column="57" selection-end-line="218" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#scroll#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#4782#4823#0" expanded="true" />
           </folding>
         </state>
       </provider>

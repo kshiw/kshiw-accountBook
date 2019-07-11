@@ -4,7 +4,7 @@ export const typeOptions = [
         maxPrice: 301,
         day: 5,
         rate: 0.15,
-        adoptTime: '12:00',
+        adoptTime: '11:00',
         type: '十二生肖-鼠'
     },
     {
@@ -20,7 +20,7 @@ export const typeOptions = [
         maxPrice: 1001,
         day: 1,
         rate: 0.05,
-        adoptTime: '14:30',
+        adoptTime: '19:50',
         type: '十二生肖-兔'
     },
     {
@@ -28,7 +28,7 @@ export const typeOptions = [
         maxPrice: 1501,
         day: 6,
         rate: 0.12,
-        adoptTime: '16:00',
+        adoptTime: '17:30',
         type: '十二生肖-狗'
     },
     {
@@ -36,7 +36,7 @@ export const typeOptions = [
         maxPrice: 2001,
         day: 3,
         rate: 0.1,
-        adoptTime: '17:30',
+        adoptTime: '12:00',
         type: '十二生肖-羊'
     },
     {
@@ -44,7 +44,7 @@ export const typeOptions = [
         maxPrice: 3001,
         day: 7,
         rate: 0.2,
-        adoptTime: '19:00',
+        adoptTime: '14:30',
         type: '十二生肖-猪'
     },
     {
@@ -52,8 +52,16 @@ export const typeOptions = [
         maxPrice: 5001,
         day: 10,
         rate: 0.23,
-        adoptTime: '19:50',
+        adoptTime: '16:00',
         type: '十二生肖-马'
+    },
+    {
+        minPrice: 5001,
+        maxPrice: 8001,
+        day: 12,
+        rate: 0.28,
+        adoptTime: '19:00',
+        type: '十二生肖-牛'
     },
     //
     {
