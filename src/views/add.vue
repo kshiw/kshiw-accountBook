@@ -211,6 +211,7 @@
                     name: res.name,
                     label: res.label
                 }
+                this.log = JSON.parse(localStorage.getItem('accountListLog'))
             },
             onConfirm5 (value) {
                 console.log(value, this.labelList)

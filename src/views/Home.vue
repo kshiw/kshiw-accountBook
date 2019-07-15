@@ -105,7 +105,7 @@
             }
             return {
                 filterData: null,
-                initList: [],
+                initList: localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : [],
                 list: [],
                 deleteFlag: false,
                 deleteIndex: null,
@@ -115,7 +115,8 @@
                     ...statusList
                 },
                 search: '',
-                currentSelect: {}
+                currentSelect: {},
+                selectCur: null
             }
         },
         computed: {
@@ -169,12 +170,10 @@
             deleteExecution() {
                 let id = this.list[this.deleteIndex].id
                 let index = this.initList.findIndex(item => item.id == id)
-                this.list.splice(this.deleteIndex, 1)
                 this.initList.splice(index, 1)
-                window.localStorage.setItem('accountListLog', JSON.stringify(this.initList))
-                this.initList = localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : []
             },
             selectItem(val) {
+                this.selectCur = val
                 let list = []
                 let status = val.status
                 let time = ''
@@ -224,11 +223,9 @@
                 this.filterData = data;
             },
             addItem() {
-                // console.log('???')
                 this.$router.push('add')
             },
             init() {
-                this.initList = localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : []
                 let list = []
                 for (let i = 0, len = this.initList.length; i < len; i++) {
                     const item = this.assembly(this.initList[i])
@@ -236,8 +233,6 @@
                 }
                 this.initList = list
                 this.list = list
-
-                console.log(this.initList)
             },
             // 拼装数据
             assembly(item) {
@@ -249,15 +244,27 @@
                     item.status = '-1'
                 } else {
                     let sy = Math.ceil(pic / (60 * 60 * 1000))
-                    console.log(sy)
                     if (sy < 24) {
                         item.status = sy
-                    } else {
-                        item.status = '00'
                     }
+                    item.status = '00'
                 }
                 return item
             },
+        },
+        watch: {
+            'initList': {
+                handler: function (list) {
+                    if (this.search) {
+                        this.searchKey(this.search)
+                    }
+                    if (this.selectCur) {
+                        this.selectItem(this.selectCur)
+                    }
+                    window.localStorage.setItem('accountListLog', JSON.stringify(list))
+                },
+                deep: true
+            }
         },
         mounted() {
             this.init()
