@@ -29,7 +29,7 @@
                         </span>
                     </div>
                     <div class="content">
-                        <div class="status">{{statusList[item.status]}}</div>
+                        <div class="status">{{item.status_m ? `还有${item.status_m}小时到期` : statusList[item.status]}}</div>
                         <div class="name">
                             <div class="label-list"><span v-for="(label,labelIndex) in item.label" :key="labelIndex">{{label}}</span>
                             </div>
@@ -151,7 +151,7 @@
                             // 判断是否重复
                             if (!cfList.includes(item.id)) {
                                 cfList.push(item.id)
-                                list.push(this.assembly(item))
+                                list.push(item)
                             }
                         }
                     })
@@ -171,6 +171,7 @@
                 let id = this.list[this.deleteIndex].id
                 let index = this.initList.findIndex(item => item.id == id)
                 this.initList.splice(index, 1)
+                this.listUpdate(this.initList)
             },
             selectItem(val) {
                 this.selectCur = val
@@ -191,8 +192,8 @@
 
                 }
                 this.initList.forEach(item => {
-                    if ((status ? item.status == status : item.status) && (val.time ? +new Date(item.createTime) > time : item.createTime)) {
-                        list.push(this.assembly(item))
+                    if ((status ? (status == '24' ? item.status_m : item.status == status) : item.status) && (val.time ? +new Date(item.createTime) > time : item.createTime)) {
+                        list.push(item)
                     }
                 })
                 this.list = list
@@ -245,25 +246,21 @@
                 } else {
                     let sy = Math.ceil(pic / (60 * 60 * 1000))
                     if (sy < 24) {
-                        item.status = sy
+                        item.status_m = sy
                     }
                     item.status = '00'
                 }
                 return item
             },
-        },
-        watch: {
-            'initList': {
-                handler: function (list) {
-                    if (this.search) {
-                        this.searchKey(this.search)
-                    }
-                    if (this.selectCur) {
-                        this.selectItem(this.selectCur)
-                    }
-                    window.localStorage.setItem('accountListLog', JSON.stringify(list))
-                },
-                deep: true
+            listUpdate(list) {
+                console.log('listUpdate', list)
+                if (this.search) {
+                    this.searchKey(this.search)
+                }
+                if (this.selectCur) {
+                    this.selectItem(this.selectCur)
+                }
+                window.localStorage.setItem('accountListLog', JSON.stringify(list))
             }
         },
         mounted() {
