@@ -19,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/add.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
+            <state relative-caret-position="3349">
               <caret line="199" column="48" selection-start-line="199" selection-start-column="48" selection-end-line="199" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -32,15 +32,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="194" column="89" selection-start-line="194" selection-start-column="89" selection-end-line="194" selection-end-column="89" />
+            <state relative-caret-position="254">
+              <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#scroll#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#card#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#4739#4780#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/filter.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-52">
+            <state relative-caret-position="578">
               <caret line="34" column="28" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="28" />
             </state>
           </provider>
@@ -94,6 +93,7 @@
       <find>searchKey</find>
       <find>selectItem</find>
       <find>currentSelect</find>
+      <find>acc</find>
     </findStrings>
     <replaceStrings>
       <replace>PX</replace>
@@ -248,12 +248,13 @@
       <workItem from="1562991223756" duration="416000" />
       <workItem from="1563021690252" duration="296000" />
       <workItem from="1563205587572" duration="48000" />
-      <workItem from="1563205942052" duration="3441000" />
+      <workItem from="1563205942052" duration="3672000" />
+      <workItem from="1563631651638" duration="859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65643000" />
+    <option name="totallyTimeSpent" value="66733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="800" extended-state="0" />
@@ -421,23 +422,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/filter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/add.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
+        <state relative-caret-position="3349">
           <caret line="199" column="48" selection-start-line="199" selection-start-column="48" selection-end-line="199" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -446,17 +433,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/filter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="194" column="89" selection-start-line="194" selection-start-column="89" selection-end-line="194" selection-end-column="89" />
+        <state relative-caret-position="254">
+          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#scroll#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#card#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#4739#4780#0" expanded="true" />
           </folding>
         </state>
       </provider>

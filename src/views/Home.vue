@@ -99,10 +99,6 @@
         },
         name: 'home',
         data() {
-            const statusList = {}
-            for (let i = 0, len = 24; i < len; i++) {
-                statusList[i] = `约${i}小时后到期`
-            }
             return {
                 filterData: null,
                 initList: localStorage.getItem('accountListLog') ? JSON.parse(localStorage.getItem('accountListLog')) : [],
@@ -111,8 +107,7 @@
                 deleteIndex: null,
                 statusList: {
                     '-1': '已过期',
-                    '00': '收益中',
-                    ...statusList
+                    '00': '收益中'
                 },
                 search: '',
                 currentSelect: {},
@@ -188,9 +183,6 @@
                 if (val.time == 3) {
                     time = +new Date(_now - totalSeconds * 30)
                 }
-                if (status == '24') {
-
-                }
                 this.initList.forEach(item => {
                     if ((status ? (status == '24' ? item.status_m : item.status == status) : item.status) && (val.time ? +new Date(item.createTime) > time : item.createTime)) {
                         list.push(item)
@@ -241,8 +233,9 @@
                 let end = new Date(startTemp + totalSeconds * item.day)
                 item.endTime = `${end.getFullYear()}-${end.getMonth() + 1 < 10 ? '0' + (end.getMonth() + 1) : end.getMonth() + 1}-${end.getDate() < 10 ? '0' + end.getDate() : end.getDate()} ${end.getHours()}:${end.getMinutes()}`
                 let pic = end.getTime() - now.getTime()
-                if (pic < 0) {
+                if (pic <= 0) {
                     item.status = '-1'
+                    delete item.status_m
                 } else {
                     let sy = Math.ceil(pic / (60 * 60 * 1000))
                     if (sy < 24) {
@@ -264,6 +257,7 @@
             }
         },
         mounted() {
+            console.log(this.initList)
             this.init()
             this.setFilterData()
         }
