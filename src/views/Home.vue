@@ -222,7 +222,7 @@
                 let list = []
                 for (let i = 0, len = this.initList.length; i < len; i++) {
                     const item = this.assembly(this.initList[i])
-                    list[i] = {...item}
+                    list[i] = Object.freeze(item)
                 }
                 this.initList = list
                 this.list = list
