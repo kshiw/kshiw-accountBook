@@ -229,7 +229,7 @@
             },
             // 拼装数据
             assembly(item) {
-                const startTemp = (new Date(item.createTime)).getTime()
+                const startTemp = (new Date(item.createTime.replace(/\-/g, "/"))).getTime()
                 let end = new Date(startTemp + totalSeconds * item.day)
                 item.endTime = `${end.getFullYear()}-${end.getMonth() + 1 < 10 ? '0' + (end.getMonth() + 1) : end.getMonth() + 1}-${end.getDate() < 10 ? '0' + end.getDate() : end.getDate()} ${end.getHours()}:${end.getMinutes()}`
                 let pic = end.getTime() - now.getTime()
